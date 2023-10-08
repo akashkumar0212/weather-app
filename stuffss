@@ -1,0 +1,57 @@
+// CO
+// : 
+// {concentration: 560.76, aqi: 6}
+// NO2
+// : 
+// {concentration: 7.54, aqi: 9}
+// O3
+// : 
+// {concentration: 130.18, aqi: 205}
+// PM2.5
+// : 
+// {concentration: 49.66, aqi: 118}
+// PM10
+// : 
+// {concentration: 60.71, aqi: 53}
+// SO2
+// : 
+// {concentration: 11.56, aqi: 17}
+// overall_aqi
+// : 
+// 205
+
+// Carbon monoxide_(CO)
+// Nitrogen_(NO2)
+// Ozone_(O3)
+// Sulphur dioxide_(SO2)
+// Sulphur dioxide (SO2)
+// PM10 particulates
+
+
+// {
+//     "CO": {
+//       "concentration": 1535.42,
+//       "aqi": 17
+//     },
+//     "NO2": {
+//       "concentration": 19.54,
+//       "aqi": 24
+//     },
+//     "O3": {
+//       "concentration": 80.11,
+//       "aqi": 112
+//     },
+//     "SO2": {
+//       "concentration": 15.97,
+//       "aqi": 23
+//     },
+//     "PM2.5": {
+//       "concentration": 231.67,
+//       "aqi": 281
+//     },
+//     "PM10": {
+//       "concentration": 263.21,
+//       "aqi": 154
+//     },
+//     "overall_aqi": 281
+//   }

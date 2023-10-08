@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Weather app</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About this App</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Mumbai</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Patna</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Banglore</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link ">Usage guide</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input id="city" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        <body>
+    
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+              <symbol id="check" viewBox="0 0 16 16">
+                <title>Check</title>
+                <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+              </symbol>
+            </svg>
+            
+                <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+                  <h1 class="display-4 fw-normal">Air Quality of <span id="cityName"></span></h1>
+                  <p class="fs-5 text-muted">Showing the concentration of Carbon monoxide(CO2), Nitrogen(NO2), Ozone(O3), Sulphur dioxide(SO2), PM2.5, PM10 gases present in the air</p>
+                  <div class="list-unstyled text-small position-absolute ">
+                  
+                </div>
+                </div>
+             
+            
+              <main>
+                <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                  <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                      <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Carbon monoxide</h4>
+                      </div>
+                      <div class="card-body">
+                        <h1 class="card-title pricing-card-title">Concentraction of Carbon<small class="text-muted fw-light"></small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                          <li>Carbon : <span id="CO" ></span></li> 
+                          <!-- <li>Aqi of Carbon is <span id="CO"></span></li>  -->
+                          
+                          <!-- <li>Carbon is <span id="Ozone"></span></li>
+                          <li>Carbon is <span id="Sulphur_dioxide"></span></li>
+                          <li>Carbon is <span id="PM2_5."></span></li>
+                          <li>Carbon is <span id="PM10"></span></li> -->
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg btn-primary">Refresh</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                      <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Nitrogen</h4>
+                      </div>
+                      <div class="card-body">
+                        <h1 class="card-title pricing-card-title">Concentration of Nitrogen<small class="text-muted fw-light"></small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Nitrogen : <span id="NO2"></span></li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg btn-primary">Refresh</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card mb-2 rounded-3 shadow-sm">
+                      <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Ozone</h4>
+                      </div>
+                      <div class="card-body">
+                        <h1 class="card-title pricing-card-title">Concentration of Ozone<small class="text-muted fw-light"></small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Ozone : <span id="O3"></span></li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg btn-primary">Refresh</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                      <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Sulphur dioxide</h4>
+                      </div>
+                      <div class="card-body">
+                        <h1 class="card-title pricing-card-title">Concentration of Sulphur dioxide<small class="text-muted fw-light"></small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Sulphur dioxide : <span id="SO2"></span></li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg btn-primary">Refresh</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">     
+                      <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">overall_aqi</h4>
+                      </div>
+                      <div class="card-body">
+                        <h1 class="card-title pricing-card-title">overall_aqi<small class="text-muted fw-light"></small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>aqi : <span id="overall_aqi"></span></li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg btn-primary">Refresh</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                      <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">PM10</h4>
+                      </div>
+                      <div class="card-body">
+                        <h1 class="card-title pricing-card-title">Concentration of PM10<small class="text-muted fw-light"></small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>PM10 : <span id="PM10"></span></li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg btn-primary">Refresh</button>
+                      </div>
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+            
+                <h2 class="display-6 text-center mb-4">Weather of other common places </h2>
+            
+                <div class="table-responsive">
+                  <table class="table text-center">
+                    <thead>
+                      <tr> 
+                        <th style="width: 34%;"></th>
+                        <th style="width: 22%;">Carbon monoxide (CO)</th>
+                        <th style="width: 22%;">Nitrogen dioxide (NO2)</th>
+                        <th style="width: 22%;">Ozone (O3)</th>
+                        <th style="width: 22%;">Sulphur dioxide (SO2)</th>
+                        <th style="width: 22%;"> overall_aqi</th>
+                        <th style="width: 22%;">PM10 particulates</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" class="text-start">Patna</th>
+                        <td>947.95</td>
+                        <td>8.91</td>
+                        <td>180.24</td>
+                        <td>25.03</td>
+                        <td>235</td>
+                        <td>198.74</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="text-start">Sanghai</th>
+                        <td>2510.07</td>
+                        <td>100.08</td>
+                        <td>13.23</td>
+                        <td>362.4</td>
+                        <td>219</td>
+                        <td>291.07</td>
+                      </tr>
+                    </tbody>
+            
+                    <tbody>
+                      <tr>
+                        <th scope="row" class="text-start">Boston</th>
+                        <td>297.07</td>
+                        <td>7.54</td>
+                        <td>57.94</td>
+                        <td>0.78</td>
+                        <td>49</td>
+                        <td>1.79</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="text-start">Shimla</th>
+                        <td>473.98</td>
+                        <td>4.76</td>
+                        <td>125.89</td>
+                        <td>7.87</td>
+                        <td>204</td>
+                        <td>77.83</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </main>
+            
+              
+            </div>
+            
+            </body>
+      </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
